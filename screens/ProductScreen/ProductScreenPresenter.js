@@ -5,6 +5,8 @@ import Swiper from "react-native-swiper";
 import Layout from "../../constants/Layout";
 import Colors from "../../constants/Colors";
 import UserPartials from "../../components/UserPartials";
+import PropTypes from "prop-types";
+import { products } from '../../products';
 
 const getHeight = () =>
   Layout.window.height <= 667
@@ -64,7 +66,7 @@ const ReadMore = styled.Text`
   margin-bottom: 40px;
 `;
 
-const ProductScreenPresenter = () => (
+const ProductScreenPresenter = ({name}) => (
   <Container>
     <StatusBar barStyle="light-content" />
     <ScrollView contentContainerStyle={{ paddingBottom: 40 }} bounces={false}>
@@ -95,8 +97,8 @@ const ProductScreenPresenter = () => (
       <DataContainer>
         <TimeLocation>Seoul, S. Korea • 2h ago</TimeLocation>
         <NamePrice>
-          <NamePriceText>MVMTH Watch</NamePriceText>
-          <NamePriceText>$49</NamePriceText>
+           <NamePriceText>{products[0]['name']}</NamePriceText> 
+          <NamePriceText>price</NamePriceText>
         </NamePrice>
         <Divider />
         <Description>
@@ -118,5 +120,11 @@ const ProductScreenPresenter = () => (
     </ScrollView>
   </Container>
 );
+
+ProductScreenPresenter.propTypes = {
+
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired
+};
 
 export default ProductScreenPresenter;

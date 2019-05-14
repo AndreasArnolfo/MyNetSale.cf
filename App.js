@@ -6,6 +6,8 @@ import { AppLoading, Asset, Font } from "expo";
 
 import AppNavigator from "./navigation/AppNavigator";
 
+
+
 const Container = styled.View`
   flex: 1;
   background-color: white;

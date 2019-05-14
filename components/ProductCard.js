@@ -32,8 +32,8 @@ const Price = styled.Text`
   color: ${Colors.blackColor};
 `;
 
-const ProductCard = ({ imgSrc, name, price, navigation }) => (
-  <TouchableWithoutFeedback onPress={() => navigation.navigate("Product")}>
+const ProductCard = ({ imgSrc, name, price,id , navigation }) => (
+  <TouchableWithoutFeedback onPress={() => navigation.navigate("Product",{itemId:{id}})}>
     <Container>
       <ImageContainer>
         <AutoHeightImage

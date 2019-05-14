@@ -2,6 +2,8 @@ import React from "react";
 import { TouchableOpacity, View, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import ProductScreenPresenter from "./ProductScreenPresenter";
+//import { products } from '../../products';
+
 
 export default class extends React.Component {
   static navigationOptions = {

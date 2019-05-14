@@ -16,7 +16,7 @@ const SearchResults = styled.Text`
 
 const SearchScreenPresenter = () => (
   <Container>
-    <MasonryProducts products={products}>
+    <MasonryProducts products= {products}>
       <SearchResults>30 Search Results</SearchResults>
     </MasonryProducts>
   </Container>

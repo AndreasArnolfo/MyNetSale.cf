@@ -2,10 +2,10 @@ import WooCommerceAPI from 'react-native-woocommerce-api';
 
 
 var WoooCommerceAPI = new WooCommerceAPI({
-  url: 'https://mynetsale.cf/index.php', // Your store URL
+  url: 'https://mynetsales.tk/', // Your store URL
   ssl: true,
-  consumerKey: 'ck_f1d78e33d3f0cbf4030a1de4838f6c29d5b60ea5', // Your consumer secret
-  consumerSecret: 'cs_cbd6ddad0f2a49ed388fb31e3d1ffc4f6ee1048f', // Your consumer secret
+  consumerKey: 'ck_c6d1978cca231265c0de9de3e7d2e52f88019b44', // Your consumer secret
+  consumerSecret: 'cs_1cc8b902483429fe7965ccf1aa3ad84f0375da79', // Your consumer secret
   wpAPI: true, // Enable the WP REST API integration
   version: 'wc/v2', // WooCommerce WP REST API version
   queryStringAuth: true
@@ -16,7 +16,6 @@ var datas = WoooCommerceAPI.get('products', {})
   .then(data => {
     Object.keys(data).map((res)=>{
       arrayProducts.push(data[res]);
-  
     })
   })
   .catch(error => {

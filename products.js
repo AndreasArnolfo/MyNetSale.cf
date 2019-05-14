@@ -1,5 +1,6 @@
 import WooCommerceAPI from 'react-native-woocommerce-api';
- 
+
+
 var WoooCommerceAPI = new WooCommerceAPI({
   url: 'https://mynetsale.cf/index.php', // Your store URL
   ssl: true,
@@ -10,19 +11,18 @@ var WoooCommerceAPI = new WooCommerceAPI({
   queryStringAuth: true
 });
 
-WoooCommerceAPI.get('products',{})
-.then(data => {
-  console.log(data)
-})
-.catch(error => {
-  console.log(error)
-})
+var arrayProducts = [];
+var datas = WoooCommerceAPI.get('products', {})
+  .then(data => {
+    Object.keys(data).map((res)=>{
+      arrayProducts.push(data[res]);
+  
+    })
+  })
+  .catch(error => {
+    console.log(error)
+  })
 
-export const products = [
-  {
-    uri:
-      "https://i.pinimg.com/564x/c4/85/18/c48518a3605711c48db1f04039815702.jpg",
-    name: 'coucou',
-    price: "12"
-  }
-];
+export const products = arrayProducts ;
+
+

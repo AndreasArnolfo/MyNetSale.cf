@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   image: {
-    width: 300,
+    flex:1,
     height: 300
   },
   text: {
@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
   },
   label: {
     backgroundColor: '#C48751',
-    opacity : 0.8,
-    width:300
+    opacity : 0.8
   }
 });

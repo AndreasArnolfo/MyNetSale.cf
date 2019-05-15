@@ -1,15 +1,11 @@
 {
   "expo": {
-    "name": "fira",
-    "description": "eCommerce App React Native Codekit",
-    "slug": "fira",
+    "name": "woosesh-store",
+    "description": "A very interesting project.",
+    "slug": "woosesh-store",
     "privacy": "public",
-    "primaryColor": "#007BFF",
-    "sdkVersion": "31.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "sdkVersion": "30.0.0",
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -26,7 +22,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "githubUrl": "https://github.com/serranoarevalo/fira"
+    }
   }
 }

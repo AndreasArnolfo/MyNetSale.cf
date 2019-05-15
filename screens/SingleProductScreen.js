@@ -67,7 +67,7 @@ export default class SingleProductScreen extends React.Component {
             {cart => ( 
                 <ScrollView>
                     <Image style={styles.image} source={{ uri: product.images[0].src }} />
-                    <Text style={styles.text}>{product.name}     ${product.price}</Text>
+                    <Text style={styles.text}>{product.name}     {product.price}€</Text>
                     <View style={styles.quantityCart}>
                         <View style={styles.quantity}>
                             <TouchableOpacity style={styles.decreaseButton} onPress={this.decreaseQuantity}>
@@ -84,7 +84,7 @@ export default class SingleProductScreen extends React.Component {
                             </TouchableOpacity>
                         </View>
                         <TouchableOpacity style={styles.button} onPress={() => cart.addItem(this.state.currentItem) } >
-                            <Text style={{ color: '#fff' }}> ADD TO CART </Text>
+                            <Text style={{ color: '#fff' }}> Ajouter au panier </Text>
                         </TouchableOpacity>
                     </View>
                     <HTMLView style={styles.html} value={product.description} />
@@ -99,7 +99,9 @@ export default class SingleProductScreen extends React.Component {
 const styles = StyleSheet.create({
     image: {
         width: 360,
-        height: 360
+        height: 360,
+        margin:0,
+        padding:0
     },
     text: {
         fontSize: 20,
@@ -111,8 +113,7 @@ const styles = StyleSheet.create({
     quantityCart: {
         flexDirection: 'row', 
         padding: 10, 
-        marginLeft: 20,
-        marginBottom: 20,
+        marginBottom: 20
     },
     quantity: {
         flexDirection: 'row', 
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
-        backgroundColor: '#05a5d1',
+        backgroundColor: '#C48751',
         padding: 10,
         width: 150,
         height: 40,
@@ -159,7 +160,9 @@ const styles = StyleSheet.create({
         padding: 15,
     },
     html: {
+        paddingRight: 20,
         paddingLeft: 20,
-        paddingRight: 20
+        backgroundColor: 'white'
+
     }
 });

@@ -15,7 +15,7 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Accueil',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -52,7 +52,7 @@ const ProductsStack = createStackNavigator({
 });
 
 ProductsStack.navigationOptions = {
-  tabBarLabel: 'Products',
+  tabBarLabel: 'Produits',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -66,7 +66,7 @@ const CartStack = createStackNavigator({
 });
 
 CartStack.navigationOptions = {
-  tabBarLabel: 'Cart',
+  tabBarLabel: 'Panier',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

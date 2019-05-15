@@ -1,135 +1,144 @@
-import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
- 
-import SwipeCards from 'react-native-swipe-cards';
- 
-class Card extends React.Component {
-  constructor(props) {
-    super(props);
-  }
- 
-  render() {
-    return (
-      <View style={ styles.card }>
-        <Image style={ styles.thumbnail } source={ {uri: this.props.image} } />
-        <Text style={ styles.text }>{ this.props.name }</Text>
-        <Text style={ styles.text }>{ this.props.price }</Text>
-      </View>
-    )
-  }
-}
- 
-class NoMoreCards extends React.Component {
-  constructor(props) {
-    super(props);
-  }
- 
-  render() {
-    return (
-      <View style={styles.noMoreCards}>
-        <Text>il n'y a plus d'articles</Text>
-      </View>
-    )
-  }
-}
- 
-const cards = [
-  {name: 'Robe de mariée adidas', price: '1400 €',  image: 'https://www.instantprecieux.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/o/robe-mariee-princesse-eva.jpg'},
-  {name: 'Babouche', price: '839 €', image: 'https://www.babouche-maroc.com/images/babouche-saphir.jpg'},
-  {name: '3', image: 'https://media.giphy.com/media/LkLL0HJerdXMI/giphy.gif'},
-  {name: '4', image: 'https://media.giphy.com/media/fFBmUMzFL5zRS/giphy.gif'},
-  {name: '5', image: 'https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif'},
-  {name: '6', image: 'https://media.giphy.com/media/7r4g8V2UkBUcw/giphy.gif'},
-  {name: '7', image: 'https://media.giphy.com/media/K6Q7ZCdLy8pCE/giphy.gif'},
-  {name: '8', image: 'https://media.giphy.com/media/hEwST9KM0UGti/giphy.gif'},
-  {name: '9', image: 'https://media.giphy.com/media/3oEduJbDtIuA2VrtS0/giphy.gif'},
-]
- 
-const cards2 = [
-  {name: '10', image: 'https://media.giphy.com/media/12b3E4U9aSndxC/giphy.gif'},
-  {name: '11', image: 'https://media4.giphy.com/media/6csVEPEmHWhWg/200.gif'},
-  {name: '12', image: 'https://media4.giphy.com/media/AA69fOAMCPa4o/200.gif'},
-  {name: '13', image: 'https://media.giphy.com/media/OVHFny0I7njuU/giphy.gif'},
-]
- 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cards: cards,
-      outOfCards: false
+import React, { Component } from 'react';
+import {
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    ImageBackground,
+} from 'react-native';
+
+import CardStack, { Card } from 'react-native-card-stack-swiper';
+
+
+export default class App extends Component {
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+
+
+                <CardStack
+                    style={styles.content}
+
+                    renderNoMoreCards={() => <Text style={{ fontWeight: '700', fontSize: 18, color: 'gray' }}>No more cards :(</Text>}
+                    ref={swiper => {
+                        this.swiper = swiper
+                    }}
+
+                    onSwiped={() => console.log('onSwiped')}
+                    onSwipedLeft={() => console.log('onSwipedLeft')}
+                >
+                    <Card style={[styles.card, styles.card1]}></Card>
+                    <Card style={[styles.card, styles.card2]} onSwipedLeft={() => alert('onSwipedLeft')}><Text style={styles.label}>B</Text></Card>
+                    <Card style={[styles.card, styles.card1]}><Text style={styles.label}>C</Text></Card>
+                    <Card style={[styles.card, styles.card2]}><Text style={styles.label}>D</Text></Card>
+                    <Card style={[styles.card, styles.card1]}><Text style={styles.label}>E</Text></Card>
+
+                </CardStack>
+
+
+                <View style={styles.footer}>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={[styles.button, styles.red]} onPress={() => {
+                            this.swiper.swipeLeft();
+                        }}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.button, styles.orange]} onPress={() => {
+                            this.swiper.goBackFromLeft();
+                        }}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.button, styles.green]} onPress={() => {
+                            this.swiper.swipeRight();
+                        }}>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+            </View>
+        );
     }
-  }
- 
-  handleYup (card) {
-    console.log("J'aime")
-  }
- 
-  handleNope (card) {
-    console.log("je n'aime pas")
-  }
- 
-  cardRemoved (index) {
-    console.log(`The index is ${index}`);
- 
-    let CARD_REFRESH_LIMIT = 3
- 
-    if (this.state.cards.length - index <= CARD_REFRESH_LIMIT + 1) {
-      console.log(`There are only ${this.state.cards.length - index - 1} cards left.`);
- 
-      if (!this.state.outOfCards) {
-        console.log(`Adding ${cards2.length} more cards`)
- 
-        this.setState({
-          cards: this.state.cards.concat(cards2),
-          outOfCards: true
-        })
-      }
- 
-    }
- 
-  }
- 
-  render() {
-    return (
-      <SwipeCards
-        cards={this.state.cards}
-        loop={false}
- 
-        renderCard={(cardData) => <Card {...cardData} />}
-        renderNoMoreCards={() => <NoMoreCards />}
-        showYup={true}
-        showNope={true}
- 
-        handleYup={this.handleYup}
-        handleNope={this.handleNope}
-        cardRemoved={this.cardRemoved.bind(this)}
-      />
-    )
-  }
 }
- 
+
 const styles = StyleSheet.create({
-  card: {
-    alignItems: 'center',
-    borderRadius: 15,
-    overflow: 'hidden',
-    borderColor: 'grey',
-    backgroundColor: 'white',
-    elevation: 1,
-  },
-  thumbnail: {
-    width: 300,
-    height: 300,
-  },
-  text: {
-    fontSize: 20,
-    paddingTop: 10,
-    paddingBottom: 10
-  },
-  noMoreCards: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        backgroundColor: '#f2f2f2',
+    },
+    content: {
+        flex: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    card: {
+        width: 320,
+        height: 470,
+        borderRadius: 5,
+        shadowColor: 'rgba(0,0,0,0.5)',
+        shadowOffset: {
+            width: 0,
+            height: 1
+        },
+        shadowOpacity: 0.5,
+    },
+    card1: {
+        backgroundColor: '#FE474C',
+    },
+    card2: {
+        backgroundColor: '#FEB12C',
+    },
+    label: {
+        lineHeight: 400,
+        textAlign: 'center',
+        fontSize: 55,
+        fontFamily: 'System',
+        color: '#ffffff',
+        backgroundColor: 'transparent',
+    },
+    footer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonContainer: {
+        width: 220,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    button: {
+        shadowColor: 'rgba(0,0,0,0.3)',
+        shadowOffset: {
+            width: 0,
+            height: 1
+        },
+        shadowOpacity: 0.5,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 0,
+    },
+    orange: {
+        width: 55,
+        height: 55,
+        borderWidth: 6,
+        borderColor: 'rgb(246,190,66)',
+        borderWidth: 4,
+        borderRadius: 55,
+        marginTop: -15
+    },
+    green: {
+        width: 75,
+        height: 75,
+        backgroundColor: '#fff',
+        borderRadius: 75,
+        borderWidth: 6,
+        borderColor: '#01df8a',
+    },
+    red: {
+        width: 75,
+        height: 75,
+        backgroundColor: '#fff',
+        borderRadius: 75,
+        borderWidth: 6,
+        borderColor: '#fd267d',
+    }
+});

@@ -6,7 +6,7 @@ import WooApi from '../constants/Api';
 
 export default class ProductsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Products',
+    title: 'Articles',
   };
 
   state = {
@@ -43,7 +43,7 @@ export default class ProductsScreen extends React.Component {
           this.state.products.length ?
           <FlatList
             contentContainerStyle={styles.list} 
-            numColumns={2}
+            numColumns={1}
             data={this.state.products}
             keyExtractor={ item => item.id.toString() }
             renderItem={this.renderItem}
@@ -70,20 +70,19 @@ const styles = StyleSheet.create({
   list: {
     flexDirection: 'column'
   },
-  listItem: {
-    width: '50%'
-  },
   view: {
     padding: 10
   },
   image: {
-    width: 150, 
-    height: 150
+    width: 300,
+    height: 300
   },
   text: {
+    width:300,
     textAlign: 'center',
     fontSize: 16,
-    padding: 5
+    padding: 5,
+    backgroundColor: '#d6d6c2'
   },
   loaderContainer: {
     alignItems: 'center', 

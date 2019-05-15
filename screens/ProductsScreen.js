@@ -31,7 +31,10 @@ export default class ProductsScreen extends React.Component {
     >
       <View style={styles.view}>
         <Image style={styles.image} source={{ uri: item.images[0].src }} />
-        <Text style={styles.text}>{item.name}</Text>
+       <View style={styles.label}>
+          <Text style={styles.text}>{item.name}</Text>
+          <Text style={styles.text}>Prix: {item.price}€</Text>
+       </View>
       </View>
     </TouchableOpacity>
   )
@@ -78,11 +81,10 @@ const styles = StyleSheet.create({
     height: 300
   },
   text: {
-    width:300,
+    color: 'white',
     textAlign: 'center',
     fontSize: 16,
     padding: 5,
-    backgroundColor: '#d6d6c2'
   },
   loaderContainer: {
     alignItems: 'center', 
@@ -92,4 +94,9 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
   },
+  label: {
+    backgroundColor: '#C48751',
+    opacity : 0.8,
+    width:300
+  }
 });

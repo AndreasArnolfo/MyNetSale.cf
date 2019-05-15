@@ -34,7 +34,7 @@ export default class CartScreen extends React.Component {
           } else {
             return (
               <View style={styles.container}>
-                <Text>Cart is empty!</Text>
+                <Text>Panier vide</Text>
               </View>
             )
           }

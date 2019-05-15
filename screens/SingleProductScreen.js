@@ -98,7 +98,7 @@ export default class SingleProductScreen extends React.Component {
 
 const styles = StyleSheet.create({
     image: {
-        width: 360,
+        flex:1,
         height: 360,
         margin:0,
         padding:0

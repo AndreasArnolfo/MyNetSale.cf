@@ -20,26 +20,16 @@ export default class HomeScreen extends React.Component {
           <View style={styles.welcomeContainer}>
             <Image
               source={
-                require('../assets/images/woosesh-logo.png')
+                require('../assets/images/mynetsale-logo.png')
               }
               style={styles.welcomeImage}
             />
           </View>
 
           <View style={styles.getStartedContainer}>
-            <Text style={styles.title}>WooSesh Store</Text>
+            <Text style={styles.title}>My Net Sale</Text>
           </View>
-          <ScrollView
-            horizontal
-            pagingEnabled
-            style={{ marginBottom: 10 }}
-          >
-            <Image source={{ uri: 'https://woocommerce-store.on-its-way.com/wp-content/uploads/2018/02/tshirt.jpg' }} style={styles.sliderImage} />
-            <Image source={{ uri: 'https://woocommerce-store.on-its-way.com/wp-content/uploads/2018/02/polo.jpg' }} style={styles.sliderImage} />
-            <Image source={{ uri: 'https://woocommerce-store.on-its-way.com/wp-content/uploads/2018/02/cap.jpg' }} style={styles.sliderImage} />
-            <Image source={{ uri: 'https://woocommerce-store.on-its-way.com/wp-content/uploads/2018/02/sunglasses.jpg' }} style={styles.sliderImage} />
-          </ScrollView>
-          <Button color="#05a5d1" title="SHOP" onPress={() => this.props.navigation.navigate("Products")} />
+          <Button color="#D2B384" title="Boutique" onPress={() => this.props.navigation.navigate("Products")} />
         </ScrollView>
       </View>
     );
@@ -73,6 +63,7 @@ const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
+    marginBottom: 300
   },
   helpLink: {
     paddingVertical: 15,

@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "woosesh-store",
-    "description": "A very interesting project.",
-    "slug": "woosesh-store",
+    "name": "My Net Sale",
+    "description": "Vente privée",
+    "slug": "mynetsale",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/mynetsale-logo.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/mynetsale-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

@@ -7,6 +7,8 @@ import HomeScreen from '../screens/HomeScreen';
 import ProductsScreen from '../screens/ProductsScreen';
 import SingleProductScreen from '../screens/SingleProductScreen';
 import CartScreen from '../screens/CartScreen';
+import matchScreen from '../screens/matchScreen';
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -14,6 +16,24 @@ const HomeStack = createStackNavigator({
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-home${focused ? '' : '-outline'}`
+          : 'md-home'
+      }
+    />
+  ),
+};
+
+const MatchStack = createStackNavigator({
+  Match: matchScreen,
+});
+
+MatchStack.navigationOptions = {
+  tabBarLabel: 'Match',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -57,6 +77,7 @@ CartStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
+  matchScreen,
   ProductsStack,
   CartStack,
 });

@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 11976,
   "expoServerNgrokUrl": "https://sx-6hi.anonymous.mynetsale-cf.exp.direct",
   "packagerNgrokUrl": "https://packager.sx-6hi.anonymous.mynetsale-cf.exp.direct",
-  "ngrokPid": 10010
+  "ngrokPid": 11997
 }

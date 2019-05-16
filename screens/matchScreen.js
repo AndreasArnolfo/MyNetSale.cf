@@ -28,7 +28,7 @@ export default class App extends Component {
                     onSwipedLeft={() => console.log('onSwipedLeft')}
                 >
                     <Card style={[styles.card, styles.card1]}></Card>
-                    <Card style={[styles.card, styles.card2]} onSwipedLeft={() => alert('onSwipedLeft')}><Text style={styles.label}>B</Text></Card>
+                    <Card style={[styles.card, styles.card2]}><Text style={styles.label}>B</Text></Card>
                     <Card style={[styles.card, styles.card1]}><Text style={styles.label}>C</Text></Card>
                     <Card style={[styles.card, styles.card2]}><Text style={styles.label}>D</Text></Card>
                     <Card style={[styles.card, styles.card1]}><Text style={styles.label}>E</Text></Card>
@@ -51,7 +51,6 @@ export default class App extends Component {
                         }}>
                         </TouchableOpacity>
                     </View>
-
                 </View>
             </View>
         );

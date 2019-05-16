@@ -27,8 +27,12 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            <Text style={styles.title}>My Net Sale</Text>
-          </View>
+          <Image
+              source={
+                require( '../assets/images/bgbg.png')
+              }
+              style={styles.welcomeImage}
+            />          </View>
           <Button color="#D2B384" title="Boutique" onPress={() => this.props.navigation.navigate("Products")} />
         </ScrollView>
       </View>
@@ -54,17 +58,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 300,
+    height: 240,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+    marginBottom: -30,
   },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
-    marginBottom: 300
+    
   },
+  
   helpLink: {
     paddingVertical: 15,
   },

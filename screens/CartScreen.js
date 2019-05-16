@@ -20,8 +20,8 @@ export default class CartScreen extends React.Component {
               renderItem={({ item }) =>
                 <View style={styles.lineItem} >
                   <Image style={styles.image} source={{ uri: item.image }} />
-                  <Text style={styles.text}>{item.name}</Text>
-                  <Text style={styles.text}>{item.quantity} x ${item.price}</Text>
+                  <Text style={styles.text}>{item.name}{"\n"} {item.quantity} x {item.price}€  </Text>
+                  
                   <TouchableOpacity style={{ marginLeft: 'auto' }} onPress={() => cart.removeItem(item)}><Entypo name="cross" size={30} /></TouchableOpacity>
                 </View>
               }

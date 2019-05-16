@@ -1,13 +1,13 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
+import { Platform, StatusBar, Image, StyleSheet, View } from 'react-native';
+import { AppLoading, SplashScreen, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import { CartContext } from './context/CartContext';
 
 export default class App extends React.Component {
   state = {
-    isLoadingComplete: false,
     items: [],
+    timePassed: false
   };
   
   onAddItem = (item) => {
@@ -50,14 +50,25 @@ export default class App extends React.Component {
     });
   }
 
+  componentDidMount() {
+    setTimeout( () => {
+       this.setTimePassed();
+    },3000);
+  }
+      
+  setTimePassed() {
+    this.setState({timePassed: true});
+  }    
+  
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+    
+    if (!this.state.timePassed) {
       return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
-        />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Image style={{ width: '100%', height: 100, }}
+            source={require('./assets/images/splash.gif')}
+          />
+        </View>
       );
     } else {
       return (
@@ -76,14 +87,6 @@ export default class App extends React.Component {
       );
     }
   }
-
-  _loadResourcesAsync = async () => {
-    return Promise.all([
-      Asset.loadAsync([
-        require('./assets/images/mynetsale-logo.png'),
-      ]),
-    ]);
-  };
 
   _handleLoadingError = error => {
     // In this case, you might want to report the error to your error

@@ -27,12 +27,13 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-          <Image
-              source={
-                require( '../assets/images/bgbg.png')
-              }
-              style={styles.welcomeImage}
-            />          </View>
+            <Image
+                source={
+                  require( '../assets/images/bgbg.png')
+                }
+                style={styles.welcomeImage}
+            />
+          </View>
           <Button color="#D2B384" title="Boutique" onPress={() => this.props.navigation.navigate("Products")} />
         </ScrollView>
       </View>

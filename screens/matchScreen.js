@@ -4,7 +4,7 @@ import {
     Text,
     View,
     TouchableOpacity,
-    ImageBackground,
+    Image,
 } from 'react-native';
 
 import CardStack, { Card } from 'react-native-card-stack-swiper';
@@ -27,11 +27,46 @@ export default class App extends Component {
                     onSwiped={() => console.log('onSwiped')}
                     onSwipedLeft={() => console.log('onSwipedLeft')}
                 >
-                    <Card style={[styles.card, styles.card1]}></Card>
-                    <Card style={[styles.card, styles.card2]}><Text style={styles.label}>B</Text></Card>
-                    <Card style={[styles.card, styles.card1]}><Text style={styles.label}>C</Text></Card>
-                    <Card style={[styles.card, styles.card2]}><Text style={styles.label}>D</Text></Card>
-                    <Card style={[styles.card, styles.card1]}><Text style={styles.label}>E</Text></Card>
+                    <Card style={[styles.card, styles.card1]}>
+                        <Image
+                            source={
+                                require('../assets/images/robe.jpg')
+                            }
+                            style={styles.welcomeImage}
+                        />
+                    </Card>
+                    <Card style={[styles.card, styles.card2]}>
+                        <Image
+                            source={
+                                require('../assets/images/montre.jpg')
+                            }
+                            style={styles.welcomeImage}
+                        />
+                    </Card>
+                    <Card style={[styles.card, styles.card1]}>
+                        <Image
+                            source={
+                                require('../assets/images/lv.jpg')
+                            }
+                            style={styles.welcomeImage}
+                        />
+                    </Card>
+                    <Card style={[styles.card, styles.card2]}>
+                        <Image
+                            source={
+                                require('../assets/images/peing.jpg')
+                            }
+                            style={styles.welcomeImage}
+                        />
+                    </Card>
+                    <Card style={[styles.card, styles.card1]}>
+                        <Image
+                            source={
+                                require('../assets/images/bab.jpg')
+                            }
+                            style={styles.welcomeImage}
+                        />
+                    </Card>
 
                 </CardStack>
 
@@ -67,6 +102,11 @@ const styles = StyleSheet.create({
         flex: 5,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    welcomeImage : {
+        width: 320,
+        height: 470,
+        borderRadius: 5,
     },
     card: {
         width: 320,

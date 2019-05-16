@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, Button, Text, Alert, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
 import { CartContext } from '../context/CartContext';
@@ -29,6 +29,18 @@ export default class CartScreen extends React.Component {
             return (
               <View style={styles.container}>
                 {Items}
+                <Button color="#D2B384" title="Passer commande"
+                  onPress={() => Alert.alert(
+                    'Commande',
+                    'Vous allez être redirigé vers une plateforme sécurisée pour procéder au paiement.',
+                    [
+                      {text: 'Annuler', onPress: () => console.log('Cancel Pressed!')},
+                      {text: 'OK', onPress: this.onDeleteBTN},
+                    ],
+                    { cancelable: false }
+                  )}
+                />
+                
               </View>
             )
           } else {
